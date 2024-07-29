@@ -30,7 +30,8 @@ A simple hotel management system built with Java, Spring Boot, and PostgreSQL.
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/hotel-management-system.git
+    git clone https://github.com/mohashafici/hotel-MS.git
+
     ```
 2. Navigate to the project directory:
     ```bash
