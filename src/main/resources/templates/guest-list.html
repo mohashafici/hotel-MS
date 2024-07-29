@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Guest List</title>
+  <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .add-new-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .add-new-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+  <h2>Guest List</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+    <tr th:each="guest : ${guests}">
+      <td th:text="${guest.name}">Name</td>
+      <td th:text="${guest.email}">Email</td>
+      <td th:text="${guest.phone}">Phone</td>
+      <td>
+        <a th:href="@{/guests/edit/{id}(id=${guest.id})}">Edit</a>
+        <a th:href="@{/guests/delete/{id}(id=${guest.id})}">Delete</a>
+      </td>
+    </tr>
+  </table>
+  <a href="/guests/new" class="add-new-btn">Add New Guest</a>
+</div>
+</body>
+</html>
